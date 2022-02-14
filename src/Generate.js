@@ -26,7 +26,7 @@ export default class Generate extends Component {
         try {
             this.setState({ isLoading: true })
             while (newJokesArr.length < this.props.jokesLength) {
-                const joke = await axios.get('https://icanhazdadjoke.com/', { headers: { Accept: 'application/json' } });
+                const joke = await axios.get('http://icanhazdadjoke.com/', { headers: { Accept: 'application/json' } });
                 const newJoke = joke.data.joke;
                 if (!this.seenJokes.has(newJoke)) {
                     newJokesArr.push({ text: newJoke, id: uuidv4(), votes: 0 })
